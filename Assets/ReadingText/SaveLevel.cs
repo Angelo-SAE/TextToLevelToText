@@ -36,6 +36,6 @@ public class SaveLevel : MonoBehaviour
 
       File.WriteAllText(path, charString);
 
-      //savedLevelNumber.value++;
+      savedLevelNumber.value++;
     }
 }

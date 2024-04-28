@@ -1,0 +1,8 @@
+Enable gizmos in game window
+Press G to generate one of the 50 Levels
+Press 1 to change object to wall
+Press 2 to change object to box
+Press 3 to change object to goal
+Press 4 to change object to player
+Press 5 to change object to empty
+Press D to save level in SavedLevels folder in StreamingAssets
