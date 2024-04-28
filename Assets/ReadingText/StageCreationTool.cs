@@ -9,7 +9,7 @@ public class StageCreationTool : EditorWindow
   private char[,] levelLayout;
 
   private TextAsset textTest;
-  private GameObject wall, box, goal, player;
+  private GameObject floor, wall, box, goal, player;
 
   [MenuItem("Tools/Basic Text To Level Generator")]
   private static void ShowWindow()
@@ -23,6 +23,7 @@ public class StageCreationTool : EditorWindow
 
     textTest = EditorGUILayout.ObjectField("Level Text", textTest, typeof(TextAsset), false) as TextAsset;
     selectedObject = EditorGUILayout.ObjectField("Selected Object", selectedObject, typeof(GameObjectObject), false) as GameObjectObject;
+    floor = EditorGUILayout.ObjectField("floor", floor, typeof(GameObject), false) as GameObject;
     wall = EditorGUILayout.ObjectField("wall", wall, typeof(GameObject), false) as GameObject;
     box = EditorGUILayout.ObjectField("box", box, typeof(GameObject), false) as GameObject;
     goal = EditorGUILayout.ObjectField("goal", goal, typeof(GameObject), false) as GameObject;
@@ -87,10 +88,11 @@ public class StageCreationTool : EditorWindow
         {
           Instantiate(goal, new Vector3(currentLaye, goal.transform.position.y, currentCharacter), goal.transform.rotation, holder.transform);
         }
-        if(curBean == 'P')
+        if(curBean == 'V')
         {
           Instantiate(player, new Vector3(currentLaye, player.transform.position.y, currentCharacter), player.transform.rotation, holder.transform);
         }
+        Instantiate(floor, new Vector3(currentLaye, floor.transform.position.y, currentCharacter), floor.transform.rotation, holder.transform);
       }
 
 }}}

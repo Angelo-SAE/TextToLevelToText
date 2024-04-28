@@ -299,6 +299,7 @@ MonoBehaviour:
   levelNumber: 1
   levelHolder: {fileID: 11400000, guid: fb7333ae5bdf3814b8ba817545e26fae, type: 2}
   holder: {fileID: 0}
+  currentLevelCharArray: {fileID: 11400000, guid: 04b5af660e9203b4d96b4f7c1b993f4b, type: 2}
   wall: {fileID: 3831988502394173033, guid: 6fddc502f345d3e4b921f8d3e20fc2ea, type: 3}
   floor: {fileID: 9130330254106979358, guid: beabc5269ebacfc49b4200ad4e533660, type: 3}
   box: {fileID: 5228107470900169755, guid: 6c84fbc0dccf1274baf2b3bc9889378a, type: 3}
@@ -348,6 +349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d83fdd1e7abeab24a83373014b9df71b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLevelCharArray: {fileID: 11400000, guid: 04b5af660e9203b4d96b4f7c1b993f4b, type: 2}
   selectedObject: {fileID: 11400000, guid: 84758794adaf5b742874c9a35b68fec7, type: 2}
   levelHolder: {fileID: 11400000, guid: fb7333ae5bdf3814b8ba817545e26fae, type: 2}
   selectedPosition: {fileID: 11400000, guid: 047a32cadb2566943b0e5a812abad22d, type: 2}
@@ -479,12 +481,59 @@ MonoBehaviour:
   currentSelectedPosition: {fileID: 11400000, guid: 047a32cadb2566943b0e5a812abad22d, type: 2}
   size: {x: 1, y: 1, z: 1}
   viewCamera: {fileID: 1828688510}
+--- !u!1 &1986936911
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1986936913}
+  - component: {fileID: 1986936912}
+  m_Layer: 0
+  m_Name: SaveLevel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1986936912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986936911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 269ca6b0902d0404a8aa06be1c9a85fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  savedLevelNumber: {fileID: 11400000, guid: dea12353e537b88488a3528244308f24, type: 2}
+  currentLevelCharArray: {fileID: 11400000, guid: 04b5af660e9203b4d96b4f7c1b993f4b, type: 2}
+--- !u!4 &1986936913
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986936911}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.5, y: -0.5, z: 9.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1828688511}
   - {fileID: 1119048720}
+  - {fileID: 1986936913}
   - {fileID: 422734013}
   - {fileID: 731351601}
   - {fileID: 123692038}

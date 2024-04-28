@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ChangeOutSelectedObject : MonoBehaviour
 {
+    [SerializeField] private CharacterMultiArrayObject currentLevelCharArray;
     [SerializeField] private GameObjectObject selectedObject, levelHolder;
     [SerializeField] private Vector3Object selectedPosition;
     [SerializeField] private GameObject wall, box, goal, player;
@@ -49,10 +50,14 @@ public class ChangeOutSelectedObject : MonoBehaviour
 
     private void DeleteObject()
     {
-      if(selectedObject.value.tag != "Floor")
+      try
       {
-        Destroy(selectedObject.value);
-        selectedObject.value = null;
-      }
+        if(selectedObject.value.tag != "Floor")
+        {
+          currentLevelCharArray.value[(int)selectedPosition.value.x, (int)selectedPosition.value.z] = ' ';
+          Destroy(selectedObject.value);
+          selectedObject.value = null;
+        }
+      }catch{}
     }
 }

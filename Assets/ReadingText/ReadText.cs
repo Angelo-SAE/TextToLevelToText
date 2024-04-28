@@ -4,15 +4,13 @@ using UnityEngine;
 using UnityEditor;
 using System.IO;
 
-
-
 public class ReadText : MonoBehaviour
 {
-    private char[,] levelLayout = new char[100, 100];
+    private char[,] levelLayout;
     [SerializeField] private int levelNumber;
     [SerializeField] private GameObjectObject levelHolder;
     [SerializeField] private GameObject holder;
-
+    [SerializeField] private CharacterMultiArrayObject currentLevelCharArray;
     [SerializeField] private GameObject wall, floor, box, goal, player;
 
 
@@ -38,6 +36,8 @@ public class ReadText : MonoBehaviour
       levelHolder.value = holder;
       int currentLayer = 0;
       string[] readText = File.ReadAllLines(filePath);
+      levelLayout = new char[readText.Length, readText[0].Length];
+      currentLevelCharArray.value = new char[readText.Length, readText[0].Length];
 
       foreach(string text in readText)
       {
@@ -56,27 +56,20 @@ public class ReadText : MonoBehaviour
           if(curBean == '@')
           {
             Instantiate(wall, new Vector3(currentLaye, wall.transform.position.y, currentCharacter), wall.transform.rotation, holder.transform);
-            Instantiate(floor, new Vector3(currentLaye, floor.transform.position.y, currentCharacter), floor.transform.rotation, holder.transform);
-          }
-          if(curBean == ' ')
-          {
-            Instantiate(floor, new Vector3(currentLaye, floor.transform.position.y, currentCharacter), floor.transform.rotation, holder.transform);
           }
           if(curBean == 'o' || curBean == 'O')
           {
             Instantiate(box, new Vector3(currentLaye, box.transform.position.y, currentCharacter), box.transform.rotation, holder.transform);
-            Instantiate(floor, new Vector3(currentLaye, floor.transform.position.y, currentCharacter), floor.transform.rotation, holder.transform);
           }
           if(curBean == 'x' || curBean == 'X')
           {
             Instantiate(goal, new Vector3(currentLaye, goal.transform.position.y, currentCharacter), goal.transform.rotation, holder.transform);
-            Instantiate(floor, new Vector3(currentLaye, floor.transform.position.y, currentCharacter), floor.transform.rotation, holder.transform);
           }
           if(curBean == 'V' || curBean == '<' || curBean == '>' || curBean == '^' || curBean == 'v')
           {
             Instantiate(player, new Vector3(currentLaye, player.transform.position.y, currentCharacter), player.transform.rotation, holder.transform);
-            Instantiate(floor, new Vector3(currentLaye, floor.transform.position.y, currentCharacter), floor.transform.rotation, holder.transform);
           }
+          Instantiate(floor, new Vector3(currentLaye, floor.transform.position.y, currentCharacter), floor.transform.rotation, holder.transform);
         }
       }
 
