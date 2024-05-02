@@ -297,6 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelNumber: 1
+  savedLevelNumber: 1
   levelHolder: {fileID: 11400000, guid: fb7333ae5bdf3814b8ba817545e26fae, type: 2}
   holder: {fileID: 0}
   currentLevelCharArray: {fileID: 11400000, guid: 04b5af660e9203b4d96b4f7c1b993f4b, type: 2}

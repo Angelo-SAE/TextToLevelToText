@@ -7,7 +7,7 @@ using System.IO;
 public class ReadText : MonoBehaviour
 {
     private char[,] levelLayout;
-    [SerializeField] private int levelNumber;
+    [SerializeField] private int levelNumber, savedLevelNumber;
     [SerializeField] private GameObjectObject levelHolder;
     [SerializeField] private GameObject holder;
     [SerializeField] private CharacterMultiArrayObject currentLevelCharArray;
@@ -26,6 +26,15 @@ public class ReadText : MonoBehaviour
         string filePath = Application.streamingAssetsPath + "/Levels/" + levelNumber.ToString();
         ReadTextFile(filePath);
         levelNumber++;
+      }
+      if(Input.GetKeyDown(KeyCode.F))
+      {
+        if(holder is not null)
+        {
+          Destroy(holder);
+        }
+        string filePath = Application.streamingAssetsPath + "/SavedLevels/savedLevel" + savedLevelNumber.ToString();
+        ReadTextFile(filePath);
       }
     }
 
